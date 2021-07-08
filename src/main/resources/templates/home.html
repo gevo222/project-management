@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+	
+<body>
+	
+	<div class="container">
+		
+		<h3>Project Table</h3>
+		<table>
+			<thead>
+				<tr>
+					<th> Name </th>
+					<th> Stage </th>
+					<th> Description </th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				<tr th:each="project : ${projects}">
+					<td th:text="${project.name}"/>
+					<td th:text="${project.stage}"/>
+					<td th:text="${project.description}"/>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>Employee Table</h3>
+		<table>
+			<thead>
+				<tr>
+					<th> First Name </th>
+					<th> Last Name </th>
+					<th> Email </th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				<tr th:each="employee : ${employees}">
+					<td th:text="${employee.firstName}"/>
+					<td th:text="${employee.lastName}"/>
+					<td th:text="${employee.email}"/>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+
+</body>
+	    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://cdn.rawgit.com/crlcu/multiselect/v2.5.1/dist/js/multiselect.min.js"></script>
+		
+</html>
