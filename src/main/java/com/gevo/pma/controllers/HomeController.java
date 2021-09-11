@@ -30,6 +30,6 @@ public class HomeController {
 		List<Employee> employees = (List<Employee>) employeeRepo.findAll();
 		model.addAttribute("employees", employees);
 		
-		return("home.html");
+		return("main/home.html");
 	}
 }
