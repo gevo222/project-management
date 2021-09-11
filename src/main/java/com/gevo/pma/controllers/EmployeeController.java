@@ -15,7 +15,7 @@ import com.gevo.pma.entities.Employee;
 public class EmployeeController {
 	
 	@Autowired
-	IEmployeeRepository employeetRepo;
+	IEmployeeRepository employeeRepo;
 	
 	@GetMapping("/new")
 	public String displayEmployeeForm(Model model)
@@ -27,7 +27,7 @@ public class EmployeeController {
 	@PostMapping("/save")
 	public String createEmployee(Employee employee, Model model)
 	{
-		employeetRepo.save(employee);
+		employeeRepo.save(employee);
 		
 		return "redirect:/employees/new";
 	}
