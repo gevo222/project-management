@@ -1,5 +1,6 @@
 package com.gevo.pma.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,12 +24,9 @@ public class Project {
 	private String stage;
 	private String description;
 
-	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, 
-			fetch = FetchType.LAZY)
-	@JoinTable(name="project_employee",
-				joinColumns=@JoinColumn(name="project_id"),
-				inverseJoinColumns=@JoinColumn(name="employee_id")
-					)
+	@ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH,
+			CascadeType.PERSIST }, fetch = FetchType.LAZY)
+	@JoinTable(name = "project_employee", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "employee_id"))
 	private List<Employee> employees;
 
 	public Project() {
@@ -80,6 +78,13 @@ public class Project {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public void addEmployee(Employee emp) {
+		if (employees == null) {
+			employees = new ArrayList<>();
+		}
+		employees.add(emp);
 	}
 
 }
