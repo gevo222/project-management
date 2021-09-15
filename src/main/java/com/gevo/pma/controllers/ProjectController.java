@@ -49,14 +49,7 @@ public class ProjectController {
 	{
 		projectRepo.save(project);
 		
-		Iterable<Employee> chosenEmployees = empRepo.findAllById(employees);
-		
-		for(Employee emp : chosenEmployees)
-		{
-			emp.setProject(project);
-			empRepo.save(emp);
-		}
-		return "redirect:/projects/new";
+		return "redirect:/projects";
 	}
 	
 }

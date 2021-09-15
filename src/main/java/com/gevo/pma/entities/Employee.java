@@ -1,11 +1,15 @@
 package com.gevo.pma.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,9 +23,12 @@ public class Employee {
 	private String lastName;
 	private String email;
 
-	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "project_id")
-	private Project project;
+	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+	@JoinTable(name="project_employee",
+	joinColumns=@JoinColumn(name="employee_id"),
+	inverseJoinColumns=@JoinColumn(name="project_id")
+		)
+	private List<Project> projects;
 
 	public Employee() {
 
@@ -42,12 +49,12 @@ public class Employee {
 		this.employeeId = employeeId;
 	}
 
-	public Project getProject() {
-		return project;
+	public List<Project> getProjects() {
+		return projects;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 
 	public String getFirstName() {
