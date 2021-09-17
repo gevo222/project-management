@@ -3,56 +3,76 @@
 
 
 <head th:replace="layouts :: header"></head>
-	
+
 <body>
-	
-<nav th:replace="layouts :: navbar"></nav>
+
+	<nav th:replace="layouts :: navbar"></nav>
 
 	<div class="container">
-		
+		<h3> Main Dashboard</h3>F
+		<hr>
 		<h3>Project Table</h3>
-		<table>
-			<thead>
-				<tr>
-					<th> Name </th>
-					<th> Stage </th>
-					<th> Description </th>
-				</tr>
-			</thead>
-		
-			<tbody>
-				<tr th:each="project : ${projects}">
-					<td th:text="${project.name}"/>
-					<td th:text="${project.stage}"/>
-					<td th:text="${project.description}"/>
-				</tr>
-			</tbody>
-		</table>
-		
-		<h3>Employee Table</h3>
-		<table>
-			<thead>
-				<tr>
-					<th> First Name </th>
-					<th> Last Name </th>
-					<th> Email </th>
-				</tr>
-			</thead>
-		
-			<tbody>
-				<tr th:each="employee : ${employees}">
-					<td th:text="${employee.firstName}"/>
-					<td th:text="${employee.lastName}"/>
-					<td th:text="${employee.email}"/>
-				</tr>
-			</tbody>
-		</table>
-		
+		<div class="row">
+			<div class="col-md-6">
+
+				<table class="tablee table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th> Name </th>
+							<th> Stage </th>
+							<th> Description </th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="project : ${projects}">
+							<td th:text="${project.name}" />
+							<td th:text="${project.stage}" />
+							<td th:text="${project.description}" />
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<canvas id="myPieChart" heigh="50" width="50"></canvas>
+			</div>
+		</div>
+
+
 	</div>
 
+	<div class="container">
+		<h3>Employee Table</h3>
+		<div class="row">
+			<div class="col-md-6">
+
+				<table class="tablee table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th> First Name </th>
+							<th> Last Name </th>
+							<th> Email </th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="employee : ${employees}">
+							<td th:text="${employee.firstName}" />
+							<td th:text="${employee.lastName}" />
+							<td th:text="${employee.email}" />
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" th:src="@{js/myChart.js}"></script>
 </body>
-	    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-	    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script src="https://cdn.rawgit.com/crlcu/multiselect/v2.5.1/dist/js/multiselect.min.js"></script>
-		
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdn.rawgit.com/crlcu/multiselect/v2.5.1/dist/js/multiselect.min.js"></script>
+
 </html>
