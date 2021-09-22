@@ -1,12 +1,21 @@
+var chartDataStr = decodeHtml(chartData);
+var chartJsonArray = JSON.parse(chartDataStr);
+
+var arrayLength	= chartJsonArray.length;
+
+var numericData = [];
+var labelData = [];
+
+for(var i = 0; i < arrayLength; i++) {
+	numericData[i] = chartJsonArray[i].value;
+	labelData[i] = chartJsonArray[i].label;
+}
+
 const data = {
-  labels: [
-    'Red',
-    'Blue',
-    'Yellow'
-  ],
+  labels: labelData,
   datasets: [{
-    label: 'My First Dataset',
-    data: [300, 50, 100],
+    label: 'Project Stage Data Count',
+    data: numericData,
     backgroundColor: [
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)',
@@ -21,3 +30,9 @@ new Chart(document.getElementById("myPieChart"), {
   	data: data,
 })
 
+
+function decodeHtml(html){
+	var txt = document.createElement("textarea");
+	txt.innerHTML = html;
+	return txt.value;
+}
