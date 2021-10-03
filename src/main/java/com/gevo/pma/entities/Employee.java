@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="employee_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="employee_seq")
 	private Long employeeId;
 
 	private String firstName;
