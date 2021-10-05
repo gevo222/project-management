@@ -1,10 +1,13 @@
 FROM ubuntu:latest
 
-MAINTAINER Your Name "your@email.com"
+MAINTAINER George Hovakimyan "GeorgeHovakimyan@gmail.com"
 
 RUN apt-get update && apt-get install -y openjdk-8-jdk
 
-ENV version=docker
+ENV version=aws-db-usage
+ENV dbuser=postgres
+ENV dbpass=password321
+ENV jdbcurl=jdbc:postgresql://pmadatabaseaws.crlrineqgris.us-west-1.rds.amazonaws.com:5432/postgres
 
 WORKDIR /usr/local/bin/
 
