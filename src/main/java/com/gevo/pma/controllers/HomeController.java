@@ -18,6 +18,8 @@ import com.gevo.pma.dto.EmployeeProject;
 import com.gevo.pma.dto.ChartData;
 import com.gevo.pma.entities.Employee;
 import com.gevo.pma.entities.Project;
+import com.gevo.pma.services.EmployeeService;
+import com.gevo.pma.services.ProjectService;
 
 @Controller
 public class HomeController {
@@ -26,10 +28,10 @@ public class HomeController {
 	private String ver;
 	
 	@Autowired
-	IProjectRepository projectRepo;
+	ProjectService projectRepo;
 	
 	@Autowired
-	IEmployeeRepository employeeRepo;
+	EmployeeService employeeRepo;
 	
 	@GetMapping("/")
 	public String displayProjects(Model model) throws JsonProcessingException

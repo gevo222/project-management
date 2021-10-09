@@ -14,16 +14,18 @@ import com.gevo.pma.dao.IEmployeeRepository;
 import com.gevo.pma.dao.IProjectRepository;
 import com.gevo.pma.entities.Employee;
 import com.gevo.pma.entities.Project;
+import com.gevo.pma.services.EmployeeService;
+import com.gevo.pma.services.ProjectService;
 
 @Controller
 @RequestMapping("/projects")
 public class ProjectController {
 	
 	@Autowired
-	IProjectRepository projectRepo;
+	ProjectService projectRepo;
 	
 	@Autowired
-	IEmployeeRepository empRepo;
+	EmployeeService empRepo;
 	
 	@GetMapping
 	public String displayProjects(Model model)

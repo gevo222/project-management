@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gevo.pma.dao.IEmployeeRepository;
 import com.gevo.pma.entities.Employee;
+import com.gevo.pma.services.EmployeeService;
 
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
 	
 	@Autowired
-	IEmployeeRepository employeeRepo;
+	EmployeeService employeeRepo;
 	
 	@GetMapping
 	public String displayEmployees(Model model)
