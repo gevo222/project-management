@@ -11,7 +11,7 @@
 		<h3>Create Project</h3>
 		<hr>
 
-		<form action="/projects/save" th:object="${project}" method="POST">
+		<form th:action="@{/projects/save}" th:object="${project}" method="POST">
 
 			<div class="form-group row">
 				<input type="text" placeholder="Project Name" th:field="${project.name}" class="mb-4 col-2 col-xs-4">
@@ -26,12 +26,11 @@
 			</div>
 
 			<select th:field="*{employees}" multiple="multiple">
-				<option th:each="employee : ${allEmployees}"
-					th:value = "${employee.employeeId}"
-					th:text = "${employee.firstName}">
+				<option th:each="employee : ${allEmployees}" th:value="${employee.employeeId}"
+					th:text="${employee.firstName}">
 				</option>
 			</select>
-			
+
 			<div class="form-group row">
 				<textarea type="text" placeholder="Enter Project Description" th:field="${project.description}"
 					class="mb-4 col-2 col-xs-4"></textarea>
