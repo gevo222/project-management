@@ -33,3 +33,4 @@ build/
 .vscode/
 app.log
 app.log.2021-10-09.0.gz
+*.gz
