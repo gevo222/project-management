@@ -1,5 +1,7 @@
 package com.gevo.pma.api.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,20 +38,20 @@ public class ProjectApiController {
 	
 	@PostMapping(consumes="application/json")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Project createProject(@RequestBody Project project)
+	public Project createProject(@RequestBody @Valid Project project)
 	{
 		return projectRepo.save(project);
 	}
 	
 	@PutMapping(consumes="application/json")
 	@ResponseStatus(HttpStatus.OK)
-	public Project updateProject(@RequestBody Project project)
+	public Project updateProject(@RequestBody @Valid Project project)
 	{
 		return projectRepo.save(project);
 	}
 	
 	@PatchMapping(consumes="application/json",path="/{id}")
-	public Project patchProject(@RequestBody Project newProjectData, @PathVariable("id") Long id)
+	public Project patchProject(@RequestBody @Valid Project newProjectData, @PathVariable("id") Long id)
 	{
 		Project project = projectRepo.findById(id).get();
 		

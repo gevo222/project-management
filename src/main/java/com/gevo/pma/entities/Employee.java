@@ -3,6 +3,7 @@ package com.gevo.pma.entities;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,8 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.validation.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 @Entity
 public class Employee {
@@ -22,8 +27,17 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="employee_seq")
 	private Long employeeId;
 
+	@NotNull
+	@Size(min=2, max=50)
 	private String firstName;
+	
+	@NotNull
+	@Size(min=1, max=50)
 	private String lastName;
+	
+	@NotNull
+	@Email
+	@Column(unique = true)
 	private String email;
 
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
