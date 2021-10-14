@@ -35,6 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception
 	{
+		http.csrf().disable(); //disabled for testing because POST would not work
 		http.authorizeRequests()
 		.antMatchers("/projects/new").hasRole("ADMIN")
 		.antMatchers("/projects/save").hasRole("ADMIN")
