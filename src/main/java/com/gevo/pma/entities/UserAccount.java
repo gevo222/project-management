@@ -17,7 +17,7 @@ public class UserAccount {
 	private long userId;
 	
 	@Column(name="username")
-	private long userName;
+	private String userName;
 	
 	private String email;
 	
@@ -38,11 +38,11 @@ public class UserAccount {
 		this.userId = userId;
 	}
 
-	public long getUserName() {
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(long userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
