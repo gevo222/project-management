@@ -13,11 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.validation.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.gevo.pma.validators.UniqueValue;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -37,7 +37,7 @@ public class Employee {
 	
 	@NotNull
 	@Email
-	@Column(unique = true)
+	@UniqueValue
 	private String email;
 
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
