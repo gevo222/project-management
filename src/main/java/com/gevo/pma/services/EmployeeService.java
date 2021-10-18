@@ -30,4 +30,12 @@ public class EmployeeService {
 	{
 		return empRepo.employeeProjects();
 	}
+
+	public Employee getByEmployeeId(long id) {
+		return empRepo.getByEmployeeId(id);
+	}
+
+	public void deleteById(long id) {
+		empRepo.deleteById(id);
+	}
 }

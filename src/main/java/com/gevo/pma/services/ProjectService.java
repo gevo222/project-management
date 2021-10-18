@@ -30,4 +30,11 @@ public class ProjectService {
 		return projectRepo.stage();
 	}
 	
+	public void deleteById(long id) {
+		projectRepo.deleteById(id);
+	}
+
+	public Project getByProjectId(long id) {
+		return projectRepo.getByProjectId(id);
+	}
 }
