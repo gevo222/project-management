@@ -6,76 +6,76 @@
 
 <body>
 
-	<nav th:replace="layouts :: navbar"></nav>
+    <nav th:replace="layouts :: navbar"></nav>
 
-	<div class="container">
-		<h3> Main Dashboard</h3>
-		<a th:text="${versionNumber}"></a>
-		<hr>
-		<h3>Project Table</h3>
-		<div class="row">
-			<div class="col-md-6">
+    <div class="container">
+        <h3> Main Dashboard</h3>
+        <a th:text="${versionNumber}"></a>
+        <hr>
+        <h3>Project Table</h3>
+        <div class="row">
+            <div class="col-md-6">
 
-				<table class="tablee table-bordered table-striped">
-					<thead class="thead-dark">
-						<tr>
-							<th> Name </th>
-							<th> Stage </th>
-							<th> Description </th>
-						</tr>
-					</thead>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th> Name </th>
+                            <th> Stage </th>
+                            <th> Description </th>
+                        </tr>
+                    </thead>
 
-					<tbody>
-						<tr th:each="project : ${projects}">
-							<td th:text="${project.name}" />
-							<td th:text="${project.stage}" />
-							<td th:text="${project.description}" />
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="col-md-4">
-				<canvas id="myPieChart" heigh="50" width="50"></canvas>
-				
-				<script>
-					var chartData = "[[${projectStageData}]]"
-				</script>
-				
-			</div>
-		</div>
+                    <tbody>
+                        <tr th:each="project : ${projects}">
+                            <td th:text="${project.name}" />
+                            <td th:text="${project.stage}" />
+                            <td th:text="${project.description}" />
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <canvas id="myPieChart" heigh="50" width="50"></canvas>
 
+                <script>
+                    var chartData = "[[${projectStageData}]]"
+                </script>
 
-	</div>
-
-	<div class="container">
-		<h3>Employee Table</h3>
-		<div class="row">
-			<div class="col-md-6">
-
-				<table class="tablee table-bordered table-striped">
-					<thead class="thead-dark">
-						<tr>
-							<th> First Name </th>
-							<th> Last Name </th>
-							<th> Project Count </th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<tr th:each="employeeProjectCount : ${employeesListProjectCount}">
-							<td th:text="${employeeProjectCount.firstName}" />
-							<td th:text="${employeeProjectCount.lastName}" />
-							<td th:text="${employeeProjectCount.projectCount}" />
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
 
 
+    </div>
 
-	<script type="text/javascript" th:src="@{js/myChart.js}"></script>
+    <div class="container">
+        <h3>Employee Table</h3>
+        <div class="row">
+            <div class="col-md-6">
+
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th> First Name </th>
+                            <th> Last Name </th>
+                            <th> Project Count </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="employeeProjectCount : ${employeesListProjectCount}">
+                            <td th:text="${employeeProjectCount.firstName}" />
+                            <td th:text="${employeeProjectCount.lastName}" />
+                            <td th:text="${employeeProjectCount.projectCount}" />
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" th:src="@{js/myChart.js}"></script>
 </body>
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
