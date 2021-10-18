@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,15 +28,15 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="employee_seq")
 	private Long employeeId;
 
-	@NotNull
+	@NotBlank
 	@Size(min=2, max=50)
 	private String firstName;
 	
-	@NotNull
+	@NotBlank
 	@Size(min=1, max=50)
 	private String lastName;
 	
-	@NotNull
+	@NotBlank
 	@Email
 	@UniqueValue
 	private String email;
