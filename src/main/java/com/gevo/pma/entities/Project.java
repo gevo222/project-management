@@ -13,6 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,7 +26,11 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator="project_seq")
 	private long projectId;
+	
+	@NotBlank
+	@Size(min=2, max=50)
 	private String name;
+	
 	private String stage;
 	private String description;
 
@@ -31,6 +39,11 @@ public class Project {
 	@JoinTable(name = "project_employee", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "employee_id"))
 	
 	@JsonIgnore
+	/*
+	 * uncomment if we want at least one employee assigned when creating a project
+	 * 
+	 * @NotEmpty(message="Must select at least one employee")
+	 */
 	private List<Employee> employees;
 
 	public Project() {
