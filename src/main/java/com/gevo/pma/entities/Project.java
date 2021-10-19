@@ -1,6 +1,7 @@
 package com.gevo.pma.entities;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,6 +34,8 @@ public class Project {
 	
 	private String stage;
 	private String description;
+	private Date startDate;
+	private Date endDate;
 
 	@ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH,
 			CascadeType.PERSIST }, fetch = FetchType.LAZY)
@@ -50,11 +53,16 @@ public class Project {
 
 	}
 
-	public Project(String name, String stage, String description) {
+	public Project(long projectId, String name, String stage, String description,
+			Date startDate, Date endDate, List<Employee> employees) {
 		super();
+		this.projectId = projectId;
 		this.name = name;
 		this.stage = stage;
 		this.description = description;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.employees = employees;
 	}
 
 	public List<Employee> getEmployees() {
@@ -97,6 +105,22 @@ public class Project {
 		this.description = description;
 	}
 
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	
 	public void addEmployee(Employee emp) {
 		if (employees == null) {
 			employees = new ArrayList<>();

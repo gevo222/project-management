@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gevo.pma.dao.IProjectRepository;
 import com.gevo.pma.dto.ChartData;
+import com.gevo.pma.dto.TimelineData;
 import com.gevo.pma.entities.Project;
 
 @Service
@@ -28,6 +29,11 @@ public class ProjectService {
 	public List<ChartData> stage()
 	{
 		return projectRepo.stage();
+	}
+	
+	public List<TimelineData> dates()
+	{
+		return projectRepo.dates();
 	}
 	
 	public void deleteById(long id) {

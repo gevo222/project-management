@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gevo.pma.dao.IEmployeeRepository;
 import com.gevo.pma.dao.IProjectRepository;
+import com.gevo.pma.dto.ChartData;
+import com.gevo.pma.dto.TimelineData;
 import com.gevo.pma.entities.Employee;
 import com.gevo.pma.entities.Project;
 import com.gevo.pma.services.EmployeeService;
@@ -36,6 +40,18 @@ public class ProjectController {
 		List<Project> projects = (List<Project>) projectRepo.findAll();
 		model.addAttribute("projects", projects);
 		return "projects/list-projects";
+	}
+	
+	@GetMapping("/timeline")
+	public String displayTimeline(Model model) throws JsonProcessingException
+	{
+				List<TimelineData> projectDateData = projectRepo.dates();
+			
+				ObjectMapper objectMapper = new ObjectMapper();
+				String jsonString = objectMapper.writeValueAsString(projectDateData);
+				model.addAttribute("projectDateData", jsonString);
+				
+				return("projects/project-timeline");
 	}
 	
 	@GetMapping("/new")
