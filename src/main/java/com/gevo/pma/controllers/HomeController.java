@@ -58,4 +58,10 @@ public class HomeController {
 		
 		return("main/home.html");
 	}
+	
+	@GetMapping("/rest")
+	public String displayRest(Model model) throws JsonProcessingException
+	{
+		return("rest.html");
+	}
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="layouts :: header"></head>
+
+<body>
+
+	<nav th:replace="layouts :: navbar"></nav>
+
+	<div class="container">
+		<h3>REST API</h3>
+		<hr>
+		<h6>GET REQUESTS:</h6>
+		<div>http://localhost:8080/app-api/employees</div>
+		<div>http://localhost:8080/app-api/employees/1</div>
+		<div>http://localhost:8080/app-api/projects</div>
+		<div>http://localhost:8080/app-api/projects/1</div>
+		
+		<br>
+		
+		<h6>POST/PUT REQUEST:</h6>
+		<div>http://localhost:8080/app-api/employees</div>
+		<div><b>body:</b> { "firstName": "Carl", "lastName": "Johnson",
+			"email": "CJ@gmail.com" }</div>
+		<div>http://localhost:8080/app-api/projects</div>
+		<div><b>body:</b> { "projectId":1, "name":"Project 1", "stage":"NOTSTARTED",
+			"description":"Project Desc",
+			"startDate":"2021-10-06T07:00:00.000+00:00",
+			"endDate":"2022-02-18T08:00:00.000+00:00" }</div>
+		
+		<br>
+		
+		<h6>DELETE REQUEST:</h6>
+		<div>http://localhost:8080/app-api/employees/1</div>
+		<div>http://localhost:8080/app-api/projects/1</div>
+	</div>
+</body>
+</html>
+
+
