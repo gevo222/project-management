@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y openjdk-8-jdk
 ENV version=aws-db-usage
 ENV dbuser=postgres
 ENV dbpass=password321
-ENV jdbcurl=jdbc:postgresql://pmadatabaseaws.crlrineqgris.us-west-1.rds.amazonaws.com:5432/postgres
+ENV jdbcurl=jdbc:postgresql://pmadatabaseaws.cglvngcnx0oe.us-east-2.rds.amazonaws.com:5432/postgres
 
 WORKDIR /usr/local/bin/
 
