@@ -11,29 +11,74 @@
 	<div class="container">
 		<h3>REST API</h3>
 		<hr>
-		<h6>GET REQUESTS:</h6>
-		<div>http://localhost:8080/app-api/employees</div>
-		<div>http://localhost:8080/app-api/employees/1</div>
-		<div>http://localhost:8080/app-api/projects</div>
-		<div>http://localhost:8080/app-api/projects/1</div>
-		
-		<br>
-		
-		<h6>POST/PUT REQUEST:</h6>
-		<div>http://localhost:8080/app-api/employees</div>
-		<div><b>body:</b> { "firstName": "Carl", "lastName": "Johnson",
-			"email": "CJ@gmail.com" }</div>
-		<div>http://localhost:8080/app-api/projects</div>
-		<div><b>body:</b> { "projectId":1, "name":"Project 1", "stage":"NOTSTARTED",
-			"description":"Project Desc",
-			"startDate":"2021-10-06T07:00:00.000+00:00",
-			"endDate":"2022-02-18T08:00:00.000+00:00" }</div>
-		
-		<br>
-		
-		<h6>DELETE REQUEST:</h6>
-		<div>http://localhost:8080/app-api/employees/1</div>
-		<div>http://localhost:8080/app-api/projects/1</div>
+
+		<div class="row">
+			<div class="col-md-6">
+
+				<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>GET REQUESTS:</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>http://localhost:8080/app-api/employees</td>
+						</tr>
+						<tr>
+							<td>http://localhost:8080/app-api/employees/1</td>
+						</tr>
+						<tr>
+							<td>http://localhost:8080/app-api/projects</td>
+						</tr>
+						<tr>
+							<td>http://localhost:8080/app-api/projects/1</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>POST/PUT REQUESTS:</th>
+							<th>Body</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>http://localhost:8080/app-api/employees</td>
+							<td>{ "firstName": "Carl", "lastName": "Johnson", "email":
+								"CJ@gmail.com" }</td>
+						</tr>
+						<tr>
+							<td>http://localhost:8080/app-api/projects</td>
+							<td>{ "projectId":1, "name":"Project 1",
+								"stage":"NOTSTARTED", "description":"Project Desc",
+								"startDate":"2021-10-06T07:00:00.000+00:00",
+								"endDate":"2022-02-18T08:00:00.000+00:00" }</td>
+					</tbody>
+				</table>
+
+				<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>DELETE REQUESTS:</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>http://localhost:8080/app-api/employees/1</td>
+						</tr>
+						<tr>
+							<td>http://localhost:8080/app-api/projects/1</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
