@@ -19,6 +19,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -28,13 +30,19 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator="project_seq")
 	private long projectId;
 	
-	@NotBlank
+	@NotBlank(message = "Please enter a name")
 	@Size(min=2, max=50)
 	private String name;
 	
 	private String stage;
 	private String description;
+	
+	@NotNull(message="Please enter a date")
+	@DateTimeFormat(pattern = "MM/dd/yyyy") 
 	private Date startDate;
+	
+	@NotNull(message="Please enter a date")
+	@DateTimeFormat(pattern = "MM/dd/yyyy") 
 	private Date endDate;
 
 	@ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH,

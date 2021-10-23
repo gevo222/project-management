@@ -47,10 +47,16 @@
 			Project Start Date:
 			<div class="form-group row">
 				<input id="dp3" type="text" class="mb-4 col-2 col-xs-4" value="Start Date" th:field="${project.startDate}">
+				<span style="color:red" th:if="${#fields.hasErrors('startDate')}"
+                    th:errors="${project.startDate}">
+                    </span>
 			</div>
 			Project End Date:
 			<div class="form-group row">
 				<input id="dp4" type="text" class="mb-4 col-2 col-xs-4" value="End Date" th:field="${project.endDate}">
+				<span style="color:red" th:if="${#fields.hasErrors('endDate')}"
+                    th:errors="${project.endDate}">
+                    </span>
 			</div>
 
 			<script type="text/javascript">
