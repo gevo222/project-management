@@ -25,7 +25,7 @@ Utilized Thymeleaf, Bootstrap, SpringBoot, JUnit, PostgreSQL, AWS EC2 and RDS, D
 * Containerizing applications using Docker
 * Using SpringBoot starters (Security, REST, Web, JPA, JDBC, Thymeleaf, Devtools)
 * Using Thymeleaf with HTML
-* Simplifying CSS with Bootstrap
+* Simplifying front-end with Bootstrap
 * Aspect-Oriented Programming (AOP)
 * Creating charts with Google Charts and Chartjs
 * Transferring data to Javascript using JSON
